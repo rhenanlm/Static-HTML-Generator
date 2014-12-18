@@ -1,29 +1,15 @@
-// Button tweaks
-@import "components/_buttons.less";
+// Bootstrap
+@import "_bootstrap";
 
-// Form tweaks
-@import "components/_forms.less";
+// Variable overrides and custom variables
+@import "_variables";
 
-// Form tweaks
-@import "components/_icons.less";
-
-// General styling
-@import "layouts/_general.less";
-
-// Header styling
-@import "layouts/_header.less";
-
-// Sidebar styling
-@import "layouts/_sidebar.less";
-
-// Footer styling
-@import "layouts/_footer.less";
-
-// Page styling
-@import "layouts/_pages.less";
-
-// Home page styling
-@import "layouts/pages/_home.less";
-
-// Home page
-@import "layouts/pages/_login.less";
+// Roots
+@import "_global";                   // Base styling & custom mixins
+@import "components/_buttons";       // Button tweaks
+@import "components/_forms";         // Form tweaks
+@import "layouts/_header";           // Header styling
+@import "layouts/_sidebar";          // Sidebar styling
+@import "layouts/_footer";           // Footer styling
+@import "layouts/_pages";            // Page styling
+@import "layouts/pages/_home";       // Home page styling
