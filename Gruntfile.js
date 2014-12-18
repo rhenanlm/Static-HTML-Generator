@@ -118,13 +118,6 @@ module.exports = function (grunt) {
                     // includes files within path
                     {
                         expand: true,
-                        src: ['assets/vendor/modernizr/modernizr.js'],
-                        dest: 'public/v01/r/js/',
-                        flatten: true,
-                        filter: 'isFile',
-                    },
-                    {
-                        expand: true,
                         src: ['assets/vendor/jquery/dist/jquery.min.js'],
                         dest: 'public/v01/r/js/',
                         flatten: true,
