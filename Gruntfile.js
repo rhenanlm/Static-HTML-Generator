@@ -76,22 +76,39 @@ module.exports = function (grunt) {
             }
         },
 
+        concat: {
+            options: {
+                separator: ';'
+            },
+            dist: {
+                src: [jsFileList],
+                dest: 'public/v01/r/js/scripts.js'
+            }
+        },
+
         uglify: {
             dist: {
                 files: {
-                    'public/v01/r/js/main.min.js': [jsFileList]
-                },
-                options: {
-                    compress: {
-                        global_defs: {
-                            "DEBUG": false
-                        },
-                        dead_code: true
-                    }
-                    // JS source map: to enable, uncomment the lines below and update sourceMappingURL based on your install
-                    // sourceMap: 'assets/js/scripts.min.js.map',
-                    // sourceMappingURL: '/app/themes/roots/assets/js/scripts.min.js.map'
+                    'public/v01/r/js/scripts.min.js': [jsFileList]
                 }
+            }
+        },
+
+        modernizr: {
+            build: {
+                devFile: 'assets/vendor/modernizr/modernizr.js',
+                outputFile: 'assets/js/vendor/modernizr.min.js',
+                files: {
+                    'src': [
+                        ['assets/js/scripts.min.js'],
+                        ['assets/css/main.min.css']
+                    ]
+                },
+                extra: {
+                    shiv: false
+                },
+                uglify: true,
+                parseFiles: true
             }
         },
 
