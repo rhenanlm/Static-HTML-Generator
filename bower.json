@@ -9,12 +9,12 @@
     "ignore": [
         "**/.*",
         "node_modules",
-        "bower_components",
-        "test",
-        "tests"
+        "bower_components"
     ],
     "devDependencies": {
-        "modernizr": "~2.8.3",
-        "jquery": "~2.1.1"
+        "modernizr": "2.8.2",
+        "jquery": "1.11.1",
+        "bootstrap": "3.3.1",
+        "respond": "1.4.2"
     }
 }
