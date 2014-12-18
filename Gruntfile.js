@@ -36,6 +36,35 @@ module.exports = function (grunt) {
                 '!assets/**/*.min.*'
             ]
         },
+
+        less: {
+            dev: {
+                files: {
+                    'public/v01/r/css/main.css': [
+                        'assets/less/main.less'
+                    ]
+                },
+                options: {
+                    compress: false,
+                    // LESS source map
+                    // To enable, set sourceMap to true and update sourceMapRootpath based on your install
+                    sourceMap: true,
+                    sourceMapFilename: 'public/v01/r/css/main.css.map',
+                    sourceMapRootpath: ''
+                }
+            },
+            build: {
+                files: {
+                    'public/v01/r/css/main.min.css': [
+                        'assets/less/main.less'
+                    ]
+                },
+                options: {
+                    compress: true
+                }
+            }
+        },
+
         sprite: {
             all: {
                 algorithm: 'binary-tree',
@@ -46,18 +75,7 @@ module.exports = function (grunt) {
                 imgPath: '../sprites.3.png'
             }
         },
-        less: {
-            dist: {
-                files: {
-                    'public/v01/r/css/main.min.css': [
-                        'assets/less/main.less'
-                    ]
-                },
-                options: {
-                    compress: false
-                }
-            }
-        },
+
         uglify: {
             dist: {
                 files: {
