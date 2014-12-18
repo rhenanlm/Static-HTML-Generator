@@ -49,7 +49,7 @@ module.exports = function (grunt) {
                     // LESS source map
                     // To enable, set sourceMap to true and update sourceMapRootpath based on your install
                     sourceMap: true,
-                    sourceMapFilename: 'public/v01/r/css/main.css.map',
+                    sourceMapFilename: 'main.css.map',
                     sourceMapRootpath: ''
                 }
             },
