@@ -1,5 +1,5 @@
 {
-    "name": "Static HTML Generator",
+    "name": "Static-HTML-Generator",
     "version": "1.0.0",
     "description": "HTML generator with EJS Static",
     "main": "index.js",
