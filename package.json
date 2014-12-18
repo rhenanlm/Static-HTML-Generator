@@ -1,0 +1,23 @@
+{
+    "name": "Static HTML Generator",
+    "version": "1.0.0",
+    "description": "HTML generator with EJS Static",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Rhenan Medeiros <rhenan.lm@gmail.com>",
+    "license": "ISC",
+    "devDependencies": {
+        "grunt": "~0.4",
+        "grunt-contrib-clean": "~0.5",
+        "grunt-contrib-copy": "^0.5.0",
+        "grunt-contrib-jshint": "~0.10",
+        "grunt-contrib-less": "~0.11",
+        "grunt-contrib-uglify": "~0.5",
+        "grunt-contrib-watch": "~0.6",
+        "grunt-ejs-static": "~0.4.3",
+        "grunt-spritesmith": "~2.1.1",
+        "time-grunt": "~0.3.2"
+    }
+}

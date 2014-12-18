@@ -1,0 +1,174 @@
+'use strict';
+module.exports = function (grunt) {
+
+    // Show elapsed time
+    require('time-grunt')(grunt);
+
+    // JsFiles
+    var jsFileList = [
+        'assets/js/main.js'
+    ];
+
+    grunt.initConfig({
+        jshint: {
+            options: {
+                jshintrc: '.jshintrc'
+            },
+            all: [
+                'Gruntfile.js',
+                'assets/js/*.js'
+            ]
+        },
+        sprite: {
+            all: {
+                algorithm: 'binary-tree',
+                src: 'public/v01/r/sprites/*.png',
+                destImg: 'public/v01/r/sprites.3.png',
+                destCSS: 'assets/less/sprites.less',
+                cssFormat: 'less',
+                imgPath: '../sprites.3.png'
+            }
+        },
+        less: {
+            dist: {
+                files: {
+                    'public/v01/r/css/main.min.css': [
+                        'assets/less/main.less'
+                    ]
+                },
+                options: {
+                    compress: false
+                }
+            }
+        },
+        uglify: {
+            dist: {
+                files: {
+                    'public/v01/r/js/main.min.js': [jsFileList]
+                },
+                options: {
+                    compress: {
+                        global_defs: {
+                            "DEBUG": false
+                        },
+                        dead_code: true
+                    }
+                    // JS source map: to enable, uncomment the lines below and update sourceMappingURL based on your install
+                    // sourceMap: 'assets/js/scripts.min.js.map',
+                    // sourceMappingURL: '/app/themes/roots/assets/js/scripts.min.js.map'
+                }
+            }
+        },
+
+        copy: {
+            main: {
+                files: [
+                    // includes files within path
+                    {
+                        expand: true,
+                        src: ['assets/vendor/modernizr/modernizr.js'],
+                        dest: 'public/v01/r/js/',
+                        flatten: true,
+                        filter: 'isFile',
+                    },
+                    {
+                        expand: true,
+                        src: ['assets/vendor/jquery/dist/jquery.min.js'],
+                        dest: 'public/v01/r/js/',
+                        flatten: true,
+                        filter: 'isFile',
+                    },
+                    {
+                        expand: true,
+                        src: ['assets/vendor/jquery-treetable/css/jquery.treetable.css'],
+                        dest: 'public/v01/r/css/',
+                        flatten: true,
+                        filter: 'isFile',
+                    }
+                ]
+            }
+        },
+
+        ejs_static: {
+            preview: {
+                options: {
+                    dest: 'public/v01',
+                    path_to_data: 'templates/v01/data/data.json',
+                    path_to_layouts: 'templates/v01/layouts',
+                    index_page: 'login',
+                    parent_dirs: false,
+                    underscores_to_dashes: true,
+                    file_extension: '.html',
+                    helpers: [
+                        'templates/v01/helper_functions.js'
+                    ]
+                }
+            }
+        },
+
+        watch: {
+            less: {
+                files: [
+                    'assets/less/**/*.less'
+                ],
+                tasks: ['less']
+            },
+            js: {
+                files: [
+                    '<%= jshint.all %>'
+                ],
+                tasks: ['jshint', 'uglify']
+            },
+            sprite: {
+                files: [
+                    'public/v01/r/sprites/*.png'
+                ],
+                tasks: ['sprite']
+            },
+            ejs_static: {
+                files: [
+                    'templates/v01/**/*.ejs',
+                    'templates/v01/**/*.json'
+                ],
+                tasks: ['ejs_static']
+            }
+        },
+
+        clean: {
+            dist: [
+                'public/v01/r/css/main.min.css',
+                'public/v01/r/js/main.min.js'
+            ]
+        },
+
+
+    });
+
+    // Load tasks
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-spritesmith');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-ejs-static');
+
+    // Register tasks
+    grunt.registerTask('default', [
+        'clean',
+        'ejs_static'
+    ]);
+    grunt.registerTask('dev', [
+        'watch'
+    ]);
+
+    grunt.registerTask('sprite+less', [
+        'sprite',
+        'less'
+    ]);
+    grunt.registerTask('html', [
+        'ejs_static'
+    ]);
+
+};

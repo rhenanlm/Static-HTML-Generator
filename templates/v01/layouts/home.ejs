@@ -1,0 +1,14 @@
+<% include ./incs/head %>
+
+
+<div id="corpo" class="corpo">
+    <!-- case 'perfil' -->
+    <% if (file_name === 'home') { %>
+        <% include ./incs/vitrine %>
+        <% file_name = false; %>
+    <% } %>
+    <!-- end case -->
+
+</div>
+
+<% include ./incs/footer %>
