@@ -13,6 +13,14 @@
     -webkit-box-shadow: @arguments;
 }
 
+.title(@tamanho){
+    //dividimos o tamanho que queremos pela font padrao para termos o valor necessário para o calculo de fonte \o/
+    //@var: (@tamanho/@font-size-base);
+    //agora pegamos nosso valor e
+    font-size: (@tamanho);
+}
+
+
 /* Helpers
 * --------------------------------------- */
 
@@ -77,7 +85,9 @@
     margin-top: 25px;
 }
 
-
+.ml-5{
+    margin-left: 5px;
+}
 .ml-10{
     margin-left: 10px;
 }
