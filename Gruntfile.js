@@ -144,6 +144,12 @@ module.exports = function (grunt) {
             }
         },
 
+        clean: {
+            dist: [
+                'public/v01/r/sprites.*.png'
+            ]
+        },
+
         watch: {
             less: {
                 files: [
@@ -163,7 +169,7 @@ module.exports = function (grunt) {
                 files: [
                     'public/v01/r/sprites/*.png'
                 ],
-                tasks: ['sprite']
+                tasks: ['clean', 'sprite']
             },
             ejs_static: {
                 files: [
@@ -181,6 +187,7 @@ module.exports = function (grunt) {
     ]);
     grunt.registerTask('dev', [
         'jshint',
+        'clean',
         'sprite',
         'less:dev',
         'concat',
@@ -188,6 +195,7 @@ module.exports = function (grunt) {
     ]);
     grunt.registerTask('build', [
         'jshint',
+        'clean',
         'sprite',
         'less:build',
         'uglify',
