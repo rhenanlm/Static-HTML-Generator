@@ -194,5 +194,5 @@ module.exports = function (grunt) {
         'modernizr',
         'ejs_static'
     ]);
-    
+
 };
