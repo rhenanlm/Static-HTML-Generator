@@ -1,0 +1,23 @@
+
+.btn-default(@background: #ff6633, @color: #fff,@backgroundhover: #ff6633,  @colorhover: #fff){
+    background: @background;
+    border-color: @background;
+    color: @color;
+    .title(18px);
+    .border-radius(4px);
+    padding: 16px 30px;
+    cursor: pointer;
+    .d-inblock;
+    .is-opensans(600);
+    &:hover, &:focus{
+        background: @backgroundhover;
+        border-color: @backgroundhover;
+        color: @colorhover;
+        text-decoration: none;
+    }
+}
+
+
+.btn-a{
+    .btn-default();
+}
