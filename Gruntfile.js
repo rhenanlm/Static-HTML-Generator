@@ -121,7 +121,14 @@ module.exports = function (grunt) {
                         src: ['assets/vendor/jquery/dist/jquery.min.js'],
                         dest: 'public/v01/r/js/',
                         flatten: true,
-                        filter: 'isFile',
+                        filter: 'isFile'
+                    },
+                    {
+                        expand: true,
+                        src: ['assets/vendor/bootstrap/dist/fonts/*'],
+                        dest: 'public/v01/r/fonts/',
+                        flatten: true,
+                        filter: 'isFile'
                     }
                 ]
             }
@@ -188,6 +195,7 @@ module.exports = function (grunt) {
     grunt.registerTask('dev', [
         'jshint',
         'clean',
+        'copy',
         'sprite',
         'less:dev',
         'concat',
@@ -196,6 +204,7 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [
         'jshint',
         'clean',
+        'copy',
         'sprite',
         'less:build',
         'uglify',
