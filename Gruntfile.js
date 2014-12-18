@@ -69,10 +69,10 @@ module.exports = function (grunt) {
             all: {
                 algorithm: 'binary-tree',
                 src: 'public/v01/r/sprites/*.png',
-                destImg: 'public/v01/r/sprites.3.png',
-                destCSS: 'assets/less/sprites.less',
+                destImg: 'public/v01/r/sprites.' + (new Date().getTime()) + '.png',
+                destCSS: 'assets/less/_sprites.less',
                 cssFormat: 'less',
-                imgPath: '../sprites.3.png'
+                imgPath: '../sprites.' + (new Date().getTime()) + '.png'
             }
         },
 
