@@ -21,6 +21,9 @@ module.exports = function (grunt) {
         'assets/vendor/bootstrap/js/scrollspy.js',
         'assets/vendor/bootstrap/js/tab.js',
         'assets/vendor/bootstrap/js/affix.js',
+        'assets/vendor/jquery-icheck/icheck.js',
+        'assets/js/plugins/funcoes.basica.js',
+        'assets/js/plugins/jquery.maskedinput.js',
         'assets/js/main.js'
     ];
 
@@ -176,7 +179,7 @@ module.exports = function (grunt) {
                 files: [
                     'public/v01/r/sprites/*.png'
                 ],
-                tasks: ['clean', 'sprite']
+                tasks: ['clean', 'sprite', 'less:dev']
             },
             ejs_static: {
                 files: [
